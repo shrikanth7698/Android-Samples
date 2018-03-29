@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sai_h.labex.ex11">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="30sp"
+        android:text="Username"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/uname"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/uname"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:id="@+id/val1"
+        android:hint="Email or Name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/val1"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/alegreya_sans"
+        android:text="Password"
+        android:textSize="30sp"
+        android:id="@+id/pass"/>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_below="@+id/pass"
+        android:id="@+id/val2"
+        android:layout_marginLeft="20dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="25sp"
+        android:layout_below="@+id/val2"
+        android:id="@+id/bex1"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

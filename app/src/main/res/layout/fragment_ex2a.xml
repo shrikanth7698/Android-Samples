@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sai_h.labex.ex2a">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+        <TableRow
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="84dp"
+                android:background="#b0b0b0"
+                android:fontFamily="@font/alegreya_sans"
+                android:text="Row1"
+                android:textSize="30sp"
+                android:layout_span="3" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dcdcdc">
+            <TextView android:text="Row2 C1"
+                android:fontFamily="@font/alegreya_sans"
+                android:textSize="30dp"/>
+            <TextView android:text="Row2 C2"
+                android:fontFamily="@font/alegreya_sans"
+                android:textSize="30dp"/>
+            <TextView android:text="Row2 C3"
+                android:fontFamily="@font/alegreya_sans"
+                android:textSize="30dp"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+            <TextView android:text="Row3 C1"
+                android:layout_weight="1"
+                android:fontFamily="@font/alegreya_sans"
+                android:textSize="30sp"
+                android:background="#b0b0b0"/>
+            <TextView android:text="Row3 C2"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/alegreya_sans"
+                android:background="#b0b0b0" />
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>
