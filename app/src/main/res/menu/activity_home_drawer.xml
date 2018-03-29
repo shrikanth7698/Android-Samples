@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_basic_ui_design"
+            android:title="Basic UI Design" />
+        <item
+            android:id="@+id/nav_font_color"
+
+            android:title="Font and Color Application" />
+        <item
+            android:id="@+id/nav_table_layout"
+
+            android:title="Table Layout" />
+        <item
+            android:id="@+id/nav_event_listener"
+            android:title="Event Listener" />
+
+        <item
+            android:id="@+id/nav_calculator"
+            android:title="Native Calculator" />
+
+        <item
+            android:id="@+id/nav_graphics_primitives"
+            android:title="Graphic Primitives" />
+
+        <item
+            android:id="@+id/nav_sql"
+            android:title="Sql Database" />
+
+        <item
+            android:id="@+id/nav_rss"
+            android:title="RSS Feed" />
+
+        <item
+            android:id="@+id/nav_multi_threading"
+            android:title="MultiThreading" />
+
+        <item
+            android:id="@+id/nav_location"
+            android:title="GPS Location" />
+
+        <item
+            android:id="@+id/nav_sd"
+            android:title="Internal Storage Writing" />
+
+        <item
+            android:id="@+id/nav_sms"
+            android:title="Send SMS" />
+
+        <item
+            android:id="@+id/nav_alarm"
+            android:title="Alarm Clock" />
+
+    </group>
+
+</menu>
