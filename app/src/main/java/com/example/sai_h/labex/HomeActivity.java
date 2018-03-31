@@ -3,6 +3,8 @@ package com.example.sai_h.labex;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.SubMenu;
@@ -30,6 +32,9 @@ public class HomeActivity extends AppCompatActivity
     NavigationView navigationView;
     DrawerLayout drawer;
 
+    Class fragmentClass;
+    public static Fragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +51,9 @@ public class HomeActivity extends AppCompatActivity
          navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         init();
+        fragmentInit();
     }
 
     @Override
@@ -76,8 +83,130 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if(id==R.id.nav_home){
+            fragmentClass = HomeFragment.class;
+            SpannableString s = new SpannableString("Android Samples");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        }
+        else if(id==R.id.nav_basic_ui_design){
+            fragmentClass = BasicUIFragment.class;
+            SpannableString s = new SpannableString("Basic UI Design");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_font_color){
+
+            fragmentClass = FontColorFragment.class;
+            SpannableString s = new SpannableString("Font and Color Application");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+
+        } else if(id==R.id.nav_table_layout){
+
+
+            fragmentClass = TableLayoutFragment.class;
+            SpannableString s = new SpannableString("Basic UI Design");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+
+        } else if(id==R.id.nav_event_listener){
+            fragmentClass = EventListenerFragment.class;
+            SpannableString s = new SpannableString("Event Listener");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+
+        } else if(id==R.id.nav_calculator){
+            fragmentClass = NativeCalculatorFragment.class;
+            SpannableString s = new SpannableString("Native Calculator");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_graphics_primitives){
+            fragmentClass = GraphicsPrimitiveFragment.class;
+            SpannableString s = new SpannableString("Graphics Primitives");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_sql){
+            fragmentClass = SqlFragment.class;
+            SpannableString s = new SpannableString("Sql Database");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_rss){
+            fragmentClass = RssFeedFragment.class;
+            SpannableString s = new SpannableString("Rss Feed");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_multi_threading){
+            fragmentClass = MultithreadingFragment.class;
+            SpannableString s = new SpannableString("MultiThreading");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_location){
+            fragmentClass = GPSLocationFragment.class;
+            SpannableString s = new SpannableString("Gps Location");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_sd){
+            fragmentClass = WriteStorageFragment.class;
+            SpannableString s = new SpannableString("Internal Storage Writing");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_sms){
+            fragmentClass = SmsFragment.class;
+            SpannableString s = new SpannableString("Send SMS");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        } else if(id==R.id.nav_alarm){
+            fragmentClass = AlarmFragment.class;
+            SpannableString s = new SpannableString("Alarm Clock");
+            s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            getSupportActionBar().setTitle(s);
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (fragment != null) {
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
+                }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
         return true;
     }
 
@@ -115,6 +244,20 @@ public class HomeActivity extends AppCompatActivity
             //the method we have create in activity
             applyFontToMenuItem(mi);
         }
+    }
 
+    public void fragmentInit(){
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        fragmentClass = HomeFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
+        navigationView.getMenu().getItem(0).setChecked(true);
     }
 }

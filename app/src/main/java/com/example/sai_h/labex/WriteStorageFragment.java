@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class WriteStorage extends Fragment {
+public class WriteStorageFragment extends Fragment {
     View v;
     TextView t1,t2,t3;
     Button b;

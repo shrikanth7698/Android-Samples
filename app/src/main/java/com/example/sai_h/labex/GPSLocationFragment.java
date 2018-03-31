@@ -27,7 +27,7 @@ import org.w3c.dom.Text;
 
 import java.util.Timer;
 
-public class GPSTracking extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,com.google.android.gms.location.LocationListener{
+public class GPSLocationFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,com.google.android.gms.location.LocationListener{
     View v;
     TextView lt,ln;
     static double lat, lon;

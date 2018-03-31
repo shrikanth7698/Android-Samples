@@ -1,7 +1,5 @@
 package com.example.sai_h.labex;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class ex3 extends Fragment implements View.OnClickListener{
+public class NativeCalculatorFragment extends Fragment implements View.OnClickListener{
     View v;
     float val1=0,val2=0;
     String op;
@@ -21,7 +19,7 @@ public class ex3 extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_ex3,container,false);
+        v = inflater.inflate(R.layout.fragment_calculator,container,false);
         return v;
     }
 

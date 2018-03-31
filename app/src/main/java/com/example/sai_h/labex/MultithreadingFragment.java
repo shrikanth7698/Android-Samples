@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.Timer;
 
-public class Multithreading extends Fragment{
+public class MultithreadingFragment extends Fragment{
     View v;
     Handler h;
     TextView c;

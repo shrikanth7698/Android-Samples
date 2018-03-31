@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.Environment;
-import android.provider.Telephony;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         FragmentTransaction f = getSupportFragmentManager().beginTransaction();
-        f.replace(R.id.fragment,new ex11());
+        f.replace(R.id.fragment,new BasicUIFragment());
         android.support.v7.widget.Toolbar t1 = findViewById(R.id.toolbar);
         setSupportActionBar(t1);
         NavigationView n = (NavigationView)findViewById(R.id.nav);
@@ -54,40 +52,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
-                    case R.id.ex1: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex11()).commit();
+                    case R.id.ex1: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new BasicUIFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.ex1b: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex1b()).commit();
+                    case R.id.ex1b: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new FontColorFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.ex2a: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex2a()).commit();
+                    case R.id.ex2a: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new TableLayoutFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.ex2b: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex2b()).commit();
+                    case R.id.ex2b: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new EventListenerFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.ex3: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex3()).commit();
+                    case R.id.ex3: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new NativeCalculatorFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.ex4 : getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new ex4()).commit();
+                    case R.id.ex4 : getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new GraphicsPrimitiveFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.sms: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new Sms()).commit();
+                    case R.id.sms: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new SmsFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.file: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new WriteStorage()).commit();
+                    case R.id.file: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new WriteStorageFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.gpstrac: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new GPSTracking()).commit();
+                    case R.id.gpstrac: getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new GPSLocationFragment()).commit();
                                     d.closeDrawer(GravityCompat.START);
                                     break;
-                    case R.id.multhr :getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new Multithreading()).commit();
+                    case R.id.multhr :getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new MultithreadingFragment()).commit();
                                         d.closeDrawer(GravityCompat.START);
                                         break;
                 }
                 return true;
             }
         });
+
+
     }
 
     @Override

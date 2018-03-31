@@ -42,7 +42,7 @@
 
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
+            android:label="Android Samples"
             android:theme="@style/AppTheme">
 
             <intent-filter>

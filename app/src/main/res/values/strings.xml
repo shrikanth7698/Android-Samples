@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LabEx</string>
+    <string name="app_name">Android Samples</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="storageselect">
         <item>Internal</item>

@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,15 +14,15 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 
-public class ex4 extends Fragment {
+public class GraphicsPrimitiveFragment extends Fragment {
     View v;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_ex4,container,false);
+        v = inflater.inflate(R.layout.fragment_graphics_primitive,container,false);
         RelativeLayout r = (RelativeLayout)v.findViewById(R.id.relgraph);
         r.addView(new Graphics(getContext()));
-        v = inflater.inflate(R.layout.fragment_ex4,container,false);
+        v = inflater.inflate(R.layout.fragment_graphics_primitive,container,false);
         return v;
     }
 

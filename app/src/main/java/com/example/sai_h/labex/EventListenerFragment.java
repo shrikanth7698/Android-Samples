@@ -1,11 +1,9 @@
 package com.example.sai_h.labex;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,12 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class ex2b extends Fragment {
+public class EventListenerFragment extends Fragment {
     View v;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_ex2b,container,false);
+        v = inflater.inflate(R.layout.fragment_event_listener,container,false);
         return v;
     }
 

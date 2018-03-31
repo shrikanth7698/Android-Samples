@@ -2,6 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sai_h.labex.ex4"
+    tools:context="com.example.sai_h.labex.GraphicsPrimitiveFragment"
     android:id="@+id/relgraph">
 </RelativeLayout>

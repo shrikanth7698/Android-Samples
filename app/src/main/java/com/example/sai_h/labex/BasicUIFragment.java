@@ -1,20 +1,15 @@
 package com.example.sai_h.labex;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class ex11 extends Fragment {
+public class BasicUIFragment extends Fragment {
     View v;
 
 
@@ -22,7 +17,7 @@ public class ex11 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_ex11, container, false);
+        v = inflater.inflate(R.layout.fragment_basic_ui, container, false);
         System.out.println("OnCreate");
         return v;
     }

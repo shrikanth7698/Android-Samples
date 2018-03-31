@@ -30,7 +30,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class Sms extends Fragment {
+public class SmsFragment extends Fragment {
     View v;
     int c = 160;
     String phno;
