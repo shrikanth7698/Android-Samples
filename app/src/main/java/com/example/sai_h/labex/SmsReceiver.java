@@ -57,10 +57,4 @@ public class SmsReceiver extends Service {
         iF.addAction("android.provider.Telephony.SMS_RECEIVED");
         registerReceiver(b,iF);
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(b);
-    }
 }

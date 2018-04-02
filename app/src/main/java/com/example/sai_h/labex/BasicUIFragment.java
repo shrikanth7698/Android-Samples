@@ -37,7 +37,7 @@ public class BasicUIFragment extends Fragment {
                 ex12 e = new ex12();
                 //e.setArguments(b);
                 FragmentTransaction f = getFragmentManager().beginTransaction();
-                f.replace(R.id.fragment,new ex12());
+                f.replace(R.id.frameLayout,new ex12());
                 f.commit();
             }
         });

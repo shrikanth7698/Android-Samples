@@ -48,7 +48,7 @@ public class ex12 extends Fragment {
                     b.putString("H3",c3.getText().toString());
                 ex13 e = new ex13();
                 e.setArguments(b);
-                getFragmentManager().beginTransaction().replace(R.id.fragment,e).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,e).commit();
             }
         });
     }
