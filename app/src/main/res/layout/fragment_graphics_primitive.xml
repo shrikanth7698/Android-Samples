@@ -4,4 +4,46 @@
     android:layout_height="match_parent"
     tools:context="com.example.sai_h.labex.GraphicsPrimitiveFragment"
     android:id="@+id/relgraph">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/imgview"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgview"
+        android:text="Rectangle"
+        android:tag="rectangle"
+        android:id="@+id/rectangle" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="circle"
+        android:layout_below="@id/imgview"
+        android:layout_toRightOf="@id/rectangle"
+        android:id="@+id/circle"
+        android:text="Circle"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/circle"
+        android:layout_below="@id/imgview"
+        android:text="Red"
+        android:tag="red"
+        android:id="@+id/redcolor"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/redcolor"
+        android:layout_below="@id/imgview"
+        android:text="Blue"
+        android:tag="blue"
+        android:id="@+id/bluecolor" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/redcolor"
+        android:text="Green"
+        android:tag="green"
+        android:id="@+id/greencolor" />
 </RelativeLayout>

@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RssFeedFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:text="RSS Example"
+        android:fontFamily="@font/alegreya_sans"
+        android:id="@+id/title"/>
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_below="@id/editText"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_below="@id/editText2"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText3"
+        android:layout_marginLeft="20dp"
+        android:text="Fetch"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:id="@+id/fetch"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="20sp"
+        android:fontFamily="@font/alegreya_sans"
+        android:layout_below="@id/editText3"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/result"/>
+</RelativeLayout>
