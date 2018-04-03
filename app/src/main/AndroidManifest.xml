@@ -26,8 +26,6 @@
             android:value="26.1.0"
             tools:replace="android:value" />
 
-        <activity android:name=".MainActivity" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

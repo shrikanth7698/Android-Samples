@@ -25,7 +25,9 @@ public class EventListenerFragment extends Fragment implements View.OnTouchListe
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_event_listener,container,false);
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
         imageView = (ImageView) v.findViewById(R.id.img);
         Display currentDisplay = getActivity().getWindowManager().getDefaultDisplay();
         float dw = currentDisplay.getWidth();
@@ -36,8 +38,7 @@ public class EventListenerFragment extends Fragment implements View.OnTouchListe
         paint.setColor(Color.RED);
         imageView.setImageBitmap(bitmap);
         imageView.setOnTouchListener((View.OnTouchListener) this);
-
-        return v;
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
 
     @Override

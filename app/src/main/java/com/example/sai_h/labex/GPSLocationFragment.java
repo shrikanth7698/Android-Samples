@@ -39,20 +39,17 @@ public class GPSLocationFragment extends Fragment implements GoogleApiClient.Con
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_gps_tracking,container,false);
         c = getContext();
         a = getActivity();
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
         lt = (TextView)v.findViewById(R.id.gpslat);
         ln = (TextView)v.findViewById(R.id.gpslon);
         this.buildGoogleapiclient();
-        return v;
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
     synchronized void buildGoogleapiclient() {
         mGoogleApiClient = new GoogleApiClient.Builder(c)
                 .addConnectionCallbacks(this)

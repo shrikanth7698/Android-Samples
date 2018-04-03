@@ -11,12 +11,8 @@ public class TableLayoutFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_table_layout,container,false);
-        return v;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
 }

@@ -32,8 +32,10 @@ public class GraphicsPrimitiveFragment extends Fragment implements View.OnTouchL
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_graphics_primitive,container,false);
         b = new Button[5];
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
         b[0] = v.findViewById(R.id.rectangle);
         b[1] = v.findViewById(R.id.circle);
         b[2] = v.findViewById(R.id.redcolor);
@@ -41,6 +43,7 @@ public class GraphicsPrimitiveFragment extends Fragment implements View.OnTouchL
         b[4] = v.findViewById(R.id.greencolor);
         for(int i=0;i<5;i++)
             b[i].setOnClickListener(this);
+        //Image View is identified and bitmap is set
         imageView = (ImageView)v.findViewById(R.id.imgview);
         Display currentDisplay = getActivity().getWindowManager().getDefaultDisplay();
         float dw = currentDisplay.getWidth();
@@ -51,12 +54,13 @@ public class GraphicsPrimitiveFragment extends Fragment implements View.OnTouchL
         paint.setColor(Color.RED);
         imageView.setImageBitmap(bitmap);
         imageView.setOnTouchListener((View.OnTouchListener) this);
-        return v;
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int action = event.getAction();
         switch (action) {
+            //Co-ordinates of the touch action are obtained first
             case MotionEvent.ACTION_DOWN:
                 downx = event.getX();
                 downy = event.getY();
@@ -66,7 +70,7 @@ public class GraphicsPrimitiveFragment extends Fragment implements View.OnTouchL
             case MotionEvent.ACTION_UP:
                 upx = event.getX();
                 upy = event.getY();
-                //canvas.drawLine(downx, downy, upx, upy, paint);
+                //Required shape is drawn based on the co-ordinates obtained
                 if(shape==1) {
                     canvas.drawRect(downx, downy, upx, upy, paint);
                 }
@@ -83,6 +87,7 @@ public class GraphicsPrimitiveFragment extends Fragment implements View.OnTouchL
     }
     @Override
     public void onClick(View v) {
+        //Listening to button clicks to set the shape and color
         switch(v.getTag().toString()){
             case "circle":shape = 0;break;
             case "rectangle": shape=1;break;

@@ -23,13 +23,17 @@ public class MultithreadingFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_multithreading,container,false);
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
+        //InCase of activity this is not necessary. Eg: Button b = findViewById(R.id.BTN);
         c = (TextView)v.findViewById(R.id.multxt2);
         b = (Button)v.findViewById(R.id.clickme);
         b.setVisibility(View.INVISIBLE);
+        //Initializing handler to run a thread after one second
         h = new Handler();
         h.postDelayed(run,1000);
-        return v;
+        return v;  //Returns the Viewgroup to the activity class for inflation
     }
 
     @Override
@@ -44,7 +48,7 @@ public class MultithreadingFragment extends Fragment{
             }
         });
     }
-
+    //Thread to perform the operation
     Runnable run = new Runnable() {
         @Override
         public void run() {

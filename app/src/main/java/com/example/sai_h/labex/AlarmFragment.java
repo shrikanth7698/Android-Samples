@@ -57,8 +57,11 @@ public class AlarmFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_alarm, container, false);
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
+        //InCase of activity this is not necessary. Eg: Button b = findViewById(R.id.BTN);
         stopalm = v.findViewById(R.id.alarmstopBTN);
         stopalm.setVisibility(View.INVISIBLE);
+        //Custom font is set for the text in the Buttons
         SpannableString s = new SpannableString("Set Alarm");
         SpannableString s1 = new SpannableString("Stop Alarm");
         SpannableString s2 = new SpannableString("Cancel Alarm");
@@ -71,18 +74,21 @@ public class AlarmFragment extends Fragment {
         setalarm.setText(s);
         stopalm.setText(s1);
         cancelalm.setText(s2);
+        //Listener to open the Dialog for Time Picker
         setalarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 df = new TimeDialogFrag();
+                //Invoking the onCreateDialog method of TimeDialogFragment
                 df.show(getActivity().getSupportFragmentManager(),"Time Picker");
             }
         });
+        //Listener to cancel the alarm
         cancelalm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(id==1) {
-                    alm.cancel(pi);
+                    alm.cancel(pi);//Cancels the alarm set. Cancelled using the same intent with which the alarm was set.
                     Toast.makeText(getContext(), "Alarm is Cancelled", Toast.LENGTH_SHORT).show();
                     id = 0;
                 }
@@ -91,7 +97,7 @@ public class AlarmFragment extends Fragment {
                 }
             }
         });
-        return v;
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
     public static class TimeDialogFrag extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
         @Override
@@ -99,20 +105,25 @@ public class AlarmFragment extends Fragment {
             Calendar c = Calendar.getInstance();
             int hour = c.get(Calendar.HOUR_OF_DAY);
             int min = c.get(Calendar.MINUTE);
+            //Returning the TimePickerDialog
             return new TimePickerDialog(getActivity(),this,hour,min,DateFormat.is24HourFormat(getActivity()));
 
         }
-
+        //onTimeSet listener to set the alarm after the time has been set using the TimePickerDialog
         @Override
         public void onTimeSet(TimePicker timePicker, int i, int i1) {
                 if(id==0) {
+                    //Get alarm service and stored in AlarmManager
                     alm = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+                    //Intent to invoke AlarmReceiver class
                     Intent in = new Intent(getContext(), AlarmReceiver.class);
+                    //PendingIntent to set the broadcast to invoke the alarm
                     pi = PendingIntent.getBroadcast(getContext(), 0, in, 0);
                     Calendar c = Calendar.getInstance();
                     c.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
                     c.set(Calendar.MINUTE, timePicker.getCurrentMinute());
                     c.set(Calendar.SECOND, 0);
+                    /*Alarm set using the PendingIntent */
                     alm.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
                     id = 1;
                     Toast.makeText(getContext(),"Alarm is Set",Toast.LENGTH_SHORT).show();
@@ -126,11 +137,14 @@ public class AlarmFragment extends Fragment {
         MediaPlayer mMediaPlayer;
         @Override
         public void onReceive(final Context context, Intent intent) {
+            //Notification is built when the alarm is triggered (onReceive is triggered)
             NotificationCompat.Builder nb = new NotificationCompat.Builder(context).setSmallIcon(R.drawable.chat).setContentTitle("Alarm").setContentText("Get Up").setPriority(NotificationCompat.PRIORITY_DEFAULT);
             Notification n = nb.build();
             NotificationManager nm = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
             nm.notify(0,n);
+            //Button to stop alarm is now set visible
             stopalm.setVisibility(View.VISIBLE);
+            //Ringtone for alarm is obtained
             Uri alert = RingtoneManager
                     .getDefaultUri(RingtoneManager.TYPE_ALARM);
             if (alert == null)
@@ -143,6 +157,7 @@ public class AlarmFragment extends Fragment {
                             .getDefaultUri(RingtoneManager.TYPE_RINGTONE);
                 }
             }
+            //MediaPlayer is initialized to play the ringtone for alarm
             mMediaPlayer = new MediaPlayer();
             try
             {
@@ -154,6 +169,7 @@ public class AlarmFragment extends Fragment {
                     mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
                     mMediaPlayer.prepare();
                     mMediaPlayer.start();
+                    //Handler to stop the ringing after a Minute
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -161,13 +177,14 @@ public class AlarmFragment extends Fragment {
                             id=0;
                             stopalm.setVisibility(View.INVISIBLE);
                         }
-                    },10000);
+                    },10000*6);
                 }
             }
             catch (IOException e)
             {
                 System.out.println("OOPS");
             }
+            //Onclick Listener to stop the alarm immediately
             stopalm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -24,10 +24,14 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        //ViewGroup to be inflated into the activity
         v = inflater.inflate(R.layout.fragment_sql,container,false);
+        //DataBase is created
         db=this.getActivity().openOrCreateDatabase("testdb", Context.MODE_PRIVATE,null);
+        //Table Creation
         db.execSQL("CREATE TABLE IF NOT EXISTS detail(name VARCHAR,phone VARCHAR,email VARCHAR);");
+        //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
+        //InCase of activity this is not necessary. Eg: Button b = findViewById(R.id.BTN);
         name = v.findViewById(R.id.name);
         phno = v.findViewById(R.id.phoneno);
         email = v.findViewById(R.id.email);
@@ -38,15 +42,17 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
         deleteBTN = v.findViewById(R.id.deleteBTN);
         displayBTN = v.findViewById(R.id.displayBTN);
         clearBTN = v.findViewById(R.id.clearBTN);
+        //onClick listeners are set for the various Buttons(Operations)
         insertBTN.setOnClickListener(this);
         updateBTN.setOnClickListener(this);
         deleteBTN.setOnClickListener(this);
         displayBTN.setOnClickListener(this);
         clearBTN.setOnClickListener(this);
-        return v;
+        return v; //Returns the Viewgroup to the activity class for inflation
     }
     @Override
     public void onClick(View view) {
+        //Insert Operation
         if(view==insertBTN){
             if(name.getText().toString().trim().length()==0&&phno.getText().toString().trim().length()==0&&email.getText().toString().trim().length()==0){
                 Toast.makeText(getContext(),"Enter all the details",Toast.LENGTH_LONG).show();
@@ -71,6 +77,7 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }
+        //Update Operation
         if(view==updateBTN){
             if(name.getText().toString().trim().length()==0&&phno.getText().toString().trim().length()==0&&email.getText().toString().trim().length()==0){
                 Toast.makeText(getContext(),"Enter all the details",Toast.LENGTH_LONG).show();
@@ -96,6 +103,7 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }
+        //Delete Operation
         if(view==deleteBTN){
             if(deletephno.getText().toString().trim().length()==0){
                 Toast.makeText(getContext(),"Enter the Phone Number",Toast.LENGTH_SHORT);
@@ -119,6 +127,7 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }
+        //Select Operation
         if(view==displayBTN){
             if(displayphno.getText().toString().trim().length()==0){
                 Toast.makeText(getContext(),"Enter the Phone Number",Toast.LENGTH_SHORT);
@@ -141,6 +150,7 @@ public class SqlFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }
+        //Clear Fields Operation
         if(view==clearBTN){
             ((EditText)v.findViewById(R.id.name)).setText("");
             ((EditText)v.findViewById(R.id.phoneno)).setText("");
