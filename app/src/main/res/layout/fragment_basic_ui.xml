@@ -5,14 +5,14 @@
     tools:context="com.example.sai_h.labex.BasicUIFragment">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/uname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alegreya_sans"
-        android:textSize="30sp"
-        android:text="Username"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:id="@+id/uname"/>
+        android:fontFamily="@font/alegreya_sans"
+        android:text="Username"
+        android:textSize="30sp" />
 
     <EditText
         android:layout_width="300dp"

@@ -1,14 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SqlFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/alegreya_sans"
+        android:text="Insert/Update (Update is made based on phone number)"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ll1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20sp"
+        android:layout_below="@id/ll1"
+        android:id="@+id/ll1s1"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/alegreya_sans"/>
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/ll1s1"
+        android:layout_below="@id/ll1"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="-15dp"
+        android:id="@+id/name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone No"
+        android:textSize="20sp"
+        android:layout_below="@id/ll1s1"
+        android:id="@+id/ll1s2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/alegreya_sans"/>
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/ll1s1"
+        android:layout_below="@id/name"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="-15dp"
+        android:id="@+id/phoneno"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail"
+        android:textSize="20sp"
+        android:layout_below="@id/ll1s2"
+        android:id="@+id/ll1s3"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/alegreya_sans"/>
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/ll1s3"
+        android:layout_below="@id/phoneno"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="-15dp"
+        android:id="@+id/email"/>
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:text="Insert"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_below="@id/ll1s3"
+        android:textStyle="bold"
+        android:layout_marginLeft="100dp"
+        android:background="@null"
+        android:id="@+id/insertBTN"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:background="@null"
+        android:layout_below="@id/ll1s3"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/insertBTN"
+        android:fontFamily="@font/alegreya_sans"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:id="@+id/updateBTN"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete (Delete is performed based on Phone Number)"
+        android:textStyle="bold"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_below="@id/insertBTN"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ll2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll2"
+        android:text="Phone Number"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/ll2s1"/>
+    <EditText
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:layout_below="@id/ll2"
+        android:layout_toRightOf="@id/ll2s1"
+        android:layout_marginTop="-17dp"
+        android:id="@+id/deletephno"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:background="@null"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:layout_below="@id/ll2s1"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:id="@+id/deleteBTN"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:text="Display User Details(Based on Phone Number)"
+        android:textStyle="bold"
+        android:layout_below="@id/deleteBTN"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ll3"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="20sp"
+        android:text="Phone Number"
+        android:layout_below="@id/ll3"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/ll3s1"/>
+    <EditText
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll3"
+        android:layout_toRightOf="@+id/ll3s1"
+        android:layout_marginTop="-18dp"
+        android:id="@+id/displayphno"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:text="Display"
+        android:textAllCaps="false"
+        android:layout_below="@id/ll3s1"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:background="@null"
+        android:textStyle="bold"
+        android:id="@+id/displayBTN"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans"
+        android:textSize="30sp"
+        android:layout_below="@id/displayBTN"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:textStyle="bold"
+        android:id="@+id/clearBTN"
+        android:text="Clear the fields"
+        android:textAllCaps="false"/>
+</RelativeLayout>

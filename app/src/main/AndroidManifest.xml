@@ -11,22 +11,20 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0"
             tools:replace="android:value" />
-
-        <activity android:name=".MainActivity">
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -45,13 +43,16 @@
             android:name=".HomeActivity"
             android:label="Android Samples"
             android:theme="@style/AppTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".AlarmFragment$AlarmReceiver" />
+
+        <activity android:name=".RssResult"></activity>
     </application>
 
 </manifest>
