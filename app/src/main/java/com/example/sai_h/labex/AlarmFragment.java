@@ -55,7 +55,7 @@ public class AlarmFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        //Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_alarm, container, false);
         //All the view elements of the fragment are identified using the viewgroup. Here viewgroup is stored in variable v
         //InCase of activity this is not necessary. Eg: Button b = findViewById(R.id.BTN);
