@@ -119,7 +119,7 @@ public class HomeActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if(id==R.id.view_code){
-            if(currentFragment.trim().length()!=0){
+            if(currentFragment.length()!=0){
 
                 switch(currentFragment)
                 {
@@ -179,6 +179,7 @@ public class HomeActivity extends AppCompatActivity
                 }
             }
             else {
+
                 Snackbar bar = Snackbar.make(findViewById(R.id.rootRL), "RIP Android Lab", Snackbar.LENGTH_LONG);
                 bar.show();
             }
@@ -194,7 +195,7 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if(id==R.id.nav_home){
-
+            currentFragment="";
             fragmentClass = HomeFragment.class;
             SpannableString s = new SpannableString("Android Samples");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
