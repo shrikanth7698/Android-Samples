@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sans"
         android:textSize="20sp"
+        android:inputType="textPassword"
         android:layout_below="@+id/pass"
         android:id="@+id/val2"
         android:layout_marginLeft="20dp" />

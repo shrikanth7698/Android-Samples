@@ -1,12 +1,16 @@
 package com.example.sai_h.labex;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Telephony;
@@ -33,10 +37,24 @@ public class SmsReceiver extends Service {
                     //Messages are displayed one by one in order
                     msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                     //Notification is built for each message
-                    NotificationCompat.Builder nb = new NotificationCompat.Builder(context).setSmallIcon(R.drawable.chat).setContentTitle(msgs[i].getOriginatingAddress().toString()).setContentText(msgs[i].getMessageBody().toString()).setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                    Notification n = nb.build();
                     NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(0,n);
+                    if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O) {
+                        NotificationChannel notificationChannel = new NotificationChannel("msgchID","Message Channel",NotificationManager.IMPORTANCE_HIGH);
+                        nm.createNotificationChannel(notificationChannel);
+                        NotificationCompat.Builder nb = new NotificationCompat.Builder(context,"msgchID").setSmallIcon(R.drawable.chat).setContentTitle(msgs[i].getOriginatingAddress().toString()).setContentText(msgs[i].getMessageBody().toString()).setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+                        stackBuilder.addNextIntent(intent);
+                        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT);
+                        nb.setContentIntent(resultPendingIntent);
+                        nm.notify(0,nb.build());
+                    }
+                    else{
+                        NotificationCompat.Builder nb = new NotificationCompat.Builder(context).setSmallIcon(R.drawable.chat).setContentTitle(msgs[i].getOriginatingAddress().toString()).setContentText(msgs[i].getMessageBody().toString()).setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                        Notification n = nb.build();
+                        nm.notify(0,n);
+                    }
                 }
             }
         }
