@@ -1,11 +1,14 @@
 package com.example.sai_h.labex;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.sai_h.labex.utils.FontChanger;
 
 
 /**
@@ -27,7 +30,12 @@ public class HomeFragment extends Fragment {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.your_activity);
          */
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view=inflater.inflate(R.layout.fragment_home, container, false);
+
+        Typeface bold = Typeface.createFromAsset(getActivity().getAssets(),"fonts/product_sans_bold.ttf");
+        FontChanger boldFontChanger = new FontChanger(bold);
+        boldFontChanger.replaceFonts((ViewGroup) view);
+        return view;
     }
 
 }

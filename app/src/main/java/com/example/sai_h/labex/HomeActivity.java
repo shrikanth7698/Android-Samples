@@ -178,6 +178,10 @@ public class HomeActivity extends AppCompatActivity
 
                 }
             }
+            else {
+                Snackbar bar = Snackbar.make(findViewById(R.id.rootRL), "RIP Android Lab", Snackbar.LENGTH_LONG);
+                bar.show();
+            }
         }
 
         return super.onOptionsItemSelected(item);
