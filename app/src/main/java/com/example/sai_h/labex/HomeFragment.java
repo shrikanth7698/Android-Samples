@@ -1,8 +1,11 @@
 package com.example.sai_h.labex;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +33,8 @@ public class HomeFragment extends Fragment {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.your_activity);
          */
+        String[] string = {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET,Manifest.permission.SEND_SMS,Manifest.permission.RECEIVE_SMS,Manifest.permission.READ_SMS,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_CONTACTS,Manifest.permission.SET_ALARM};
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-
         Typeface bold = Typeface.createFromAsset(getActivity().getAssets(),"fonts/product_sans_bold.ttf");
         FontChanger boldFontChanger = new FontChanger(bold);
         boldFontChanger.replaceFonts((ViewGroup) view);
