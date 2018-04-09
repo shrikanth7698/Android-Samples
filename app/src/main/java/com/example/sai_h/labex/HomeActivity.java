@@ -3,6 +3,7 @@ package com.example.sai_h.labex;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +21,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.sai_h.labex.activity.AlarmActivity;
+import com.example.sai_h.labex.activity.BasicUIActivity;
+import com.example.sai_h.labex.activity.EventListenerActivity;
+import com.example.sai_h.labex.activity.FontColorActivity;
+import com.example.sai_h.labex.activity.GPSLocationActivity;
+import com.example.sai_h.labex.activity.GraphicsPrimitivesActivity;
+import com.example.sai_h.labex.activity.MultithreadingActivity;
+import com.example.sai_h.labex.activity.NativeCalculatorActivity;
+import com.example.sai_h.labex.activity.RSSFeedActivity;
+import com.example.sai_h.labex.activity.SmsActivity;
+import com.example.sai_h.labex.activity.SqlActivity;
+import com.example.sai_h.labex.activity.TableLayoutActivity;
+import com.example.sai_h.labex.activity.WriteStorageActivity;
 import com.example.sai_h.labex.utils.CustomTypefaceSpan;
 import com.example.sai_h.labex.utils.FontChanger;
 import com.example.sai_h.labex.utils.TypefaceSpan;
@@ -35,6 +50,7 @@ public class HomeActivity extends AppCompatActivity
     Class fragmentClass;
     public static Fragment fragment;
     String currentFragment="";
+    int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +77,30 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            count++;
+            if(count==1) {
+                Toast.makeText(HomeActivity.this,"Press once again to exit !",Toast.LENGTH_SHORT).show();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        count=0;
+                    }
+                },5000);
+            }
+            else {
+                if(count==2) {
+                    count=0;
+                    super.onBackPressed();
+                }
+            }
+
+
         }
     }
 
@@ -83,6 +118,67 @@ public class HomeActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if(id==R.id.view_code){
+            if(currentFragment.trim().length()!=0){
+
+                switch(currentFragment)
+                {
+                    case "Basic_UI":{
+                        startActivity(new Intent(HomeActivity.this, BasicUIActivity.class));
+                        break;
+                    }
+                    case "Font_color":{
+                        startActivity(new Intent(HomeActivity.this, FontColorActivity.class));
+                        break;
+                    }
+                    case "Table_layout":{
+                        startActivity(new Intent(HomeActivity.this, TableLayoutActivity.class));
+                        break;
+                    }
+                    case "Event_listener":{
+                        startActivity(new Intent(HomeActivity.this, EventListenerActivity.class));
+                        break;
+                    }
+                    case "Calculator":{
+                        startActivity(new Intent(HomeActivity.this, NativeCalculatorActivity.class));
+                        break;
+                    }
+                    case "Graphics_primitives":{
+                        startActivity(new Intent(HomeActivity.this, GraphicsPrimitivesActivity.class));
+                        break;
+                    }
+                    case "SQL":{
+                        startActivity(new Intent(HomeActivity.this, SqlActivity.class));
+                        break;
+                    }
+                    case "RSS":{
+                        startActivity(new Intent(HomeActivity.this, RSSFeedActivity.class));
+                        break;
+                    }
+                    case "Multi_Threading":{
+                        startActivity(new Intent(HomeActivity.this, MultithreadingActivity.class));
+                        break;
+                    }
+                    case "Location":{
+                        startActivity(new Intent(HomeActivity.this, GPSLocationActivity.class));
+                        break;
+                    }
+                    case "SD":{
+                        startActivity(new Intent(HomeActivity.this, WriteStorageActivity.class));
+                        break;
+                    }
+                    case "SMS":{
+                        startActivity(new Intent(HomeActivity.this, SmsActivity.class));
+                        break;
+                    }
+                    case "Alarm":{
+                        startActivity(new Intent(HomeActivity.this, AlarmActivity.class));
+                        break;
+                    }
+
+                }
+            }
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -196,14 +292,6 @@ public class HomeActivity extends AppCompatActivity
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
-        } else if(id==R.id.view_code){
-
-            if(currentFragment.trim().length()!=0){
-
-            switch(currentFragment)
-            {}
-            }
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
