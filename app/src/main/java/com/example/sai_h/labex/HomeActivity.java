@@ -34,6 +34,7 @@ public class HomeActivity extends AppCompatActivity
     DrawerLayout drawer;
     Class fragmentClass;
     public static Fragment fragment;
+    String currentFragment="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,13 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -86,6 +94,7 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if(id==R.id.nav_home){
+
             fragmentClass = HomeFragment.class;
             SpannableString s = new SpannableString("Android Samples");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
@@ -93,13 +102,14 @@ public class HomeActivity extends AppCompatActivity
             getSupportActionBar().setTitle(s);
         }
         else if(id==R.id.nav_basic_ui_design){
+            currentFragment = "Basic_UI";
             fragmentClass = BasicUIFragment.class;
             SpannableString s = new SpannableString("Basic UI Design");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_font_color){
-
+            currentFragment = "Font_color";
             fragmentClass = FontColorFragment.class;
             SpannableString s = new SpannableString("Font and Color Application");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
@@ -108,7 +118,7 @@ public class HomeActivity extends AppCompatActivity
 
         } else if(id==R.id.nav_table_layout){
 
-
+            currentFragment = "Table_layout";
             fragmentClass = TableLayoutFragment.class;
             SpannableString s = new SpannableString("Basic UI Design");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
@@ -116,6 +126,7 @@ public class HomeActivity extends AppCompatActivity
             getSupportActionBar().setTitle(s);
 
         } else if(id==R.id.nav_event_listener){
+            currentFragment = "Event_listener";
             fragmentClass = EventListenerFragment.class;
             SpannableString s = new SpannableString("Event Listener");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
@@ -123,59 +134,76 @@ public class HomeActivity extends AppCompatActivity
             getSupportActionBar().setTitle(s);
 
         } else if(id==R.id.nav_calculator){
+            currentFragment = "Calculator";
             fragmentClass = NativeCalculatorFragment.class;
             SpannableString s = new SpannableString("Native Calculator");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_graphics_primitives){
+            currentFragment = "Graphics_primitives";
             fragmentClass = GraphicsPrimitiveFragment.class;
             SpannableString s = new SpannableString("Graphics Primitives");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_sql){
+            currentFragment = "SQL";
             fragmentClass = SqlFragment.class;
             SpannableString s = new SpannableString("Sql Database");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_rss){
+            currentFragment = "RSS";
             fragmentClass = RssFeedFragment.class;
             SpannableString s = new SpannableString("Rss Feed");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_multi_threading){
+            currentFragment = "Multi_Threading";
             fragmentClass = MultithreadingFragment.class;
             SpannableString s = new SpannableString("MultiThreading");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_location){
+            currentFragment = "Location";
             fragmentClass = GPSLocationFragment.class;
             SpannableString s = new SpannableString("Gps Location");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_sd){
+            currentFragment = "SD";
             fragmentClass = WriteStorageFragment.class;
             SpannableString s = new SpannableString("Internal Storage Writing");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_sms){
+            currentFragment = "SMS";
             fragmentClass = SmsFragment.class;
             SpannableString s = new SpannableString("Send SMS");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
         } else if(id==R.id.nav_alarm){
+            currentFragment = "Alarm";
             fragmentClass = AlarmFragment.class;
             SpannableString s = new SpannableString("Alarm Clock");
             s.setSpan(new TypefaceSpan(this, "product_sans_bold.ttf"), 0, s.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             getSupportActionBar().setTitle(s);
+        } else if(id==R.id.view_code){
+
+            if(currentFragment.trim().length()!=0){
+
+            switch(currentFragment)
+            {}
+            }
+
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

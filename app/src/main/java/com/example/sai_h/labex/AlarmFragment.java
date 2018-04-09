@@ -1,6 +1,4 @@
 package com.example.sai_h.labex;
-
-
 import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.Notification;
@@ -36,11 +34,6 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AlarmFragment extends Fragment {
     static AlarmManager alm;
     static PendingIntent pi;

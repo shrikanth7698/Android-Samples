@@ -25,7 +25,6 @@
             android:name="android.support.VERSION"
             android:value="26.1.0"
             tools:replace="android:value" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -42,17 +41,28 @@
         <activity
             android:name=".HomeActivity"
             android:label="Android Samples"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme" ><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
 
         <receiver android:name=".AlarmFragment$AlarmReceiver" />
 
-        <activity android:name=".RssResult"></activity>
+        <activity android:name=".RssResult" />
+        <activity android:name=".activity.AlarmActivity"></activity>
+        <activity android:name=".activity.BasicUIActivity" />
+        <activity android:name=".activity.EventListenerActivity" />
+        <activity android:name=".activity.FontColorActivity" />
+        <activity android:name=".activity.GPSLocationActivity" />
+        <activity android:name=".activity.GraphicsPrimitivesActivity" />
+        <activity android:name=".activity.MultithreadingActivity" />
+        <activity android:name=".activity.NativeCalculatorActivity" />
+        <activity android:name=".activity.RSSFeedActivity" />
+        <activity android:name=".activity.SmsActivity" />
+        <activity android:name=".activity.SqlActivity" />
+        <activity android:name=".activity.TableLayoutActivity" />
+        <activity android:name=".activity.WriteStorageActivity"></activity>
     </application>
 
 </manifest>

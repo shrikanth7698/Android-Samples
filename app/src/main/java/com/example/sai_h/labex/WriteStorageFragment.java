@@ -61,6 +61,7 @@ public class WriteStorageFragment extends Fragment {
                     Toast.makeText(getContext(),"Enter the File Name",Toast.LENGTH_SHORT).show();
                 }
                 else{
+
                     //Storing the directory as a string
                     String s = internal.toString()+"/"+t3.getText().toString();
                     //Directory is given for the file and the file is created
